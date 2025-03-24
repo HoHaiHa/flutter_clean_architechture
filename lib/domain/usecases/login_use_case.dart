@@ -4,6 +4,7 @@ import 'use_case.dart';
 
 @injectable
 class LoginUseCase extends UseCase<void, LoginParam> {
+
   LoginUseCase();
 
   @override

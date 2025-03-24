@@ -61,6 +61,17 @@ dependencies:
   # Testing
   mockito: ^5.4.5
 
+  flutter_native_splash: ^2.0.5
+
+  freezed_annotation: ^3.0.0
+
+flutter_native_splash:
+  image: assets/logo.png  # Đường dẫn đến ảnh splash
+  android: true
+  ios: true
+  fullscreen: true
+
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -77,6 +88,8 @@ dev_dependencies:
 
   # Network
   retrofit_generator: ^9.1.9
+
+  freezed_annotation: ^3.0.0
 
 flutter_gen:
   line_length: 80

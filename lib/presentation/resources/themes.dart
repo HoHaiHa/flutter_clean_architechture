@@ -1,77 +1,51 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_clean_architecture/gen/fonts.gen.dart';
 import 'package:flutter_clean_architecture/presentation/resources/styles.dart';
+import 'package:flutter_clean_architecture/presentation/resources/theme_data.dart';
 import 'package:flutter_clean_architecture/shared/extension/theme_data.dart';
 
+import '../../gen/fonts.gen.dart';
 import 'colors.dart';
-import 'theme_data.dart';
 
 const kDefaultPaddingLabelTabBar = 8.0;
 
 abstract class AppTheme {
-  static final InputBorder _defaultOutlineInputBorder = OutlineInputBorder(
-    borderSide: const BorderSide(color: AppColors.pattensBlue, width: 1),
-    borderRadius: BorderRadius.circular(12),
-  );
-
   static const _dividerTheme = DividerThemeData(
     space: 0,
     thickness: 1,
     color: AppColors.pattensBlue,
   );
 
+  static String? get appFontFamily {
+    return FontFamily.sFPro;
+  }
+
   static ThemeData get lightTheme {
     return ThemeData(
-      fontFamily: FontFamily.googleSans,
-      useMaterial3: false,
+      useMaterial3: true,
+      colorScheme: ColorScheme.fromSeed(
+          seedColor: AppColors.primaryColor, primary: AppColors.primaryColor),
+      fontFamily: appFontFamily,
       appBarTheme: AppBarTheme(
         color: AppColors.white,
-        titleTextStyle: AppStyles.title.copyWith(color: AppColors.nightRider),
-        shadowColor: AppColors.gray20,
-        elevation: 20,
+        titleTextStyle: AppStyles.title,
       ),
       scrollbarTheme: ScrollbarThemeData(
-        thickness: MaterialStateProperty.all(6.0),
+        thickness: WidgetStateProperty.all(6.0),
         radius: const Radius.circular(3),
         minThumbLength: 90,
-        thumbColor: MaterialStateProperty.all(AppColors.pattensBlue),
-      ),
-      colorScheme: const ColorScheme.light(
-        background: AppColors.white,
-        primary: AppColors.denim,
-      ),
-      inputDecorationTheme: InputDecorationTheme(
-        border: _defaultOutlineInputBorder,
-        focusedErrorBorder: _defaultOutlineInputBorder,
-        errorBorder: _defaultOutlineInputBorder,
-        disabledBorder: _defaultOutlineInputBorder,
-        enabledBorder: _defaultOutlineInputBorder,
-        focusedBorder: _defaultOutlineInputBorder,
-        hintStyle: AppStyles.primary.copyWith(color: AppColors.nobel),
-        labelStyle: AppStyles.primary.copyWith(color: AppColors.nightRider),
-        errorStyle: AppStyles.primary.copyWith(color: AppColors.sunsetOrange),
-        suffixStyle: AppStyles.primary.copyWith(color: AppColors.nobel),
-        iconColor: AppColors.atlantis,
-        suffixIconColor: AppColors.atlantis,
-        prefixIconColor: AppColors.atlantis,
-        contentPadding:
-            const EdgeInsets.symmetric(horizontal: 16, vertical: 11),
-        isDense: true,
-        filled: true,
+        thumbColor: WidgetStateProperty.all(AppColors.pattensBlue),
       ),
       scaffoldBackgroundColor: AppColors.background,
-      iconTheme: const IconThemeData(color: AppColors.atlantis),
-      primaryIconTheme: const IconThemeData(color: AppColors.atlantis),
       dividerTheme: _dividerTheme,
-      indicatorColor: AppColors.denim,
+      indicatorColor: AppColors.primaryColor,
       tabBarTheme: TabBarTheme(
-        labelStyle: AppStyles.highlightsBold,
-        unselectedLabelStyle: AppStyles.highlightsBold.copyWith(
+        labelStyle: AppStyles.largeSemiBold,
+        unselectedLabelStyle: AppStyles.largeSemiBold.copyWith(
           fontWeight: FontWeight.normal,
         ),
-        labelColor: AppColors.denim,
+        labelColor: AppColors.primaryColor,
         unselectedLabelColor: AppColors.atlantis,
-        indicatorSize: TabBarIndicatorSize.tab,
+        indicatorSize: TabBarIndicatorSize.label,
         labelPadding: const EdgeInsets.symmetric(
           horizontal: kDefaultPaddingLabelTabBar,
         ),
@@ -80,39 +54,45 @@ abstract class AppTheme {
         Brightness.light,
         AppThemeData(
           textTheme: AppTextTheme(
-            h1: AppStyles.h1,
-            h2: AppStyles.h2,
-            h3: AppStyles.h3,
+            //
             primary: AppStyles.primary,
+            primaryBold: AppStyles.primaryBold,
             medium: AppStyles.medium,
+            mediumSemiBold: AppStyles.mediumSemiBold,
+            mediumBold: AppStyles.mediumBold,
             small: AppStyles.small,
-            highlightsMedium: AppStyles.highlightsMedium,
-            highlightsBold: AppStyles.highlightsBold,
-            button: AppStyles.button,
+            smallBold: AppStyles.smallBold,
+            largeSemiBold: AppStyles.largeSemiBold,
+            largeBold: AppStyles.largeBold,
+            xLarge: AppStyles.xLarge,
+            xLargeBold: AppStyles.xLargeBold,
+            xxLargeBold: AppStyles.xxLargeBold,
+            xxxLargeSemiBold: AppStyles.xxxLargeSemiBold,
+            xxxLargeBold: AppStyles.xxxLargeBold,
+            //
             title: AppStyles.title,
             header: AppStyles.header,
+            title2: AppStyles.title2,
           ),
           colorSchema: AppColorSchema(
-            primary: AppColors.denim,
-            mainText: AppColors.nightRider,
-            subText: AppColors.atlantis,
-            whiteText: AppColors.white,
-            disableText: AppColors.nobel,
-            border: AppColors.pattensBlue,
-            background: AppColors.white,
-            secondary1: AppColors.pigmentGreen,
-            secondary2: AppColors.sunsetOrange,
-            secondary3: AppColors.supernova,
-            secondary4: AppColors.gorse,
-            barrierColor: AppColors.black80,
-            badgeColor: AppColors.coralRed,
-            title2: AppColors.gray76,
+            primary: AppColors.primaryColor,
+            mainText: AppColors.mainTextColor,
+            successColor: AppColors.successColor,
+            mainStrokeColor: AppColors.mainStrokeColor,
+            secondaryStrokeColor: AppColors.secondaryStrokeColor,
+            mainBackgroundColor: AppColors.mainBackgroundColor,
+            replaceTextColor: AppColors.replaceTextColor,
+            warning: AppColors.warning,
+            subTextColor: AppColors.subTextColor,
+            secondaryBackgroundColors: AppColors.secondaryBackgroundColors,
           ),
         ),
       );
   }
 
   static ThemeData get darkTheme {
-    return lightTheme.copyWith()..addOwn(Brightness.dark, lightTheme.own());
+    return lightTheme.copyWith(
+      colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primaryColor),
+    )..addOwn(Brightness.dark, lightTheme.own());
   }
 }

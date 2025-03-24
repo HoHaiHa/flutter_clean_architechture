@@ -1,11 +1,6 @@
-import 'page_status.dart';
+import 'package:flutter_clean_architecture/presentation/base/page_status.dart';
 
-abstract class BaseState {
-  const BaseState({
-    required this.pageStatus,
-    this.pageErrorMessage,
-  });
-
+class BaseState {
+  BaseState(this.pageStatus);
   final PageStatus pageStatus;
-  final String? pageErrorMessage;
 }

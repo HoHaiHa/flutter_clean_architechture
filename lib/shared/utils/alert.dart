@@ -74,7 +74,7 @@ class AppAlertDialog {
       onCancelBtnTap: () {
         onCancelBtnTap?.call();
       },
-      confirmBtnColor: AppColors.denim,
+      confirmBtnColor: AppColors.atlantis,
       closeOnConfirmBtnTap: closeOnConfirmBtnTap,
     );
     decreaseDialogCount();

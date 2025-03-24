@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 
 class SafeClickWidget extends StatelessWidget {
   const SafeClickWidget({
-    Key? key,
+    super.key,
     this.onPressed,
     required this.child,
     this.intervalMs = 500,
     this.splashFactory = InkSparkle.splashFactory,
     this.borderRadius,
-  }) : super(key: key);
+  });
 
   final VoidCallback? onPressed;
   final Widget child;
@@ -29,9 +29,8 @@ class SafeClickWidget extends StatelessWidget {
         : null;
     return InkWell(
       onTap: onTap,
-      child: child,
       borderRadius: borderRadius,
-      splashFactory: splashFactory,
+      child: child,
     );
   }
 

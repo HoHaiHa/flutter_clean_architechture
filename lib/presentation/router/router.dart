@@ -1,7 +1,5 @@
 import 'package:auto_route/auto_route.dart';
 
-import '../view/pages/top/top_page.dart';
-
 import '../view/pages/login/login_page.dart';
 
 part 'router.gr.dart';

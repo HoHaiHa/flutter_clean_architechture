@@ -1,8 +1,10 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_clean_architecture/presentation/resources/colors.dart';
-import 'package:flutter_clean_architecture/presentation/resources/styles.dart';
 import 'package:flutter_clean_architecture/shared/extension/context.dart';
+
+
+import '../../resources/colors.dart';
+import '../../resources/styles.dart';
 
 class AppBottomNavigationItem {
   AppBottomNavigationItem({
@@ -20,13 +22,13 @@ class AppBottomNavigationItem {
 
 class AppBottomNavigationBar extends StatelessWidget {
   const AppBottomNavigationBar({
-    Key? key,
+    super.key,
     required this.items,
     this.currentIndex = 0,
     this.onTap,
     this.selectedTextStyle,
     this.unSelectedTextStyle,
-  }) : super(key: key);
+  });
 
   final List<AppBottomNavigationItem> items;
   final int currentIndex;
@@ -37,7 +39,8 @@ class AppBottomNavigationBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final _unSelectedTextStyle = unSelectedTextStyle ??
-        AppStyles.bottomNavigation.copyWith(color: AppColors.suvaGrey);
+        AppStyles.bottomNavigation
+            .copyWith(color: AppColors.secondaryBackgroundColors);
     final _selectedTextStyle = selectedTextStyle ??
         _unSelectedTextStyle.copyWith(
           fontWeight: FontWeight.w500,
@@ -48,16 +51,16 @@ class AppBottomNavigationBar extends StatelessWidget {
         boxShadow: [
           BoxShadow(
             offset: const Offset(-5, 5),
-            color: const Color(0xFFAEAEC0).withOpacity(0.5),
+            color: const Color(0xFFAEAEC0).withAlpha((0.5 * 255).round()),
             blurRadius: 20,
-          ),
+          )
         ],
         color: Theme.of(context).scaffoldBackgroundColor,
         borderRadius: const BorderRadius.vertical(top: Radius.circular(16)),
       ),
       child: SafeArea(
         child: Material(
-          color: context.themeOwn().colorSchema?.whiteText,
+          color: Colors.white,
           borderRadius: const BorderRadius.vertical(top: Radius.circular(16)),
           child: _BottomNavigationTile(
             items: items,
@@ -74,13 +77,12 @@ class AppBottomNavigationBar extends StatelessWidget {
 
 class _BottomNavigationTile extends StatelessWidget {
   const _BottomNavigationTile({
-    Key? key,
     required this.items,
     required this.currentIndex,
     required this.onTap,
     required this.selectedTextStyle,
     required this.unSelectedTextStyle,
-  }) : super(key: key);
+  });
 
   final List<AppBottomNavigationItem> items;
   final int currentIndex;
@@ -115,13 +117,12 @@ class _BottomNavigationTile extends StatelessWidget {
 
 class _Tile extends StatelessWidget {
   const _Tile({
-    Key? key,
     required this.item,
     required this.isSelected,
     required this.onTap,
     required this.selectedTextStyle,
     required this.unSelectedTextStyle,
-  }) : super(key: key);
+  });
 
   final AppBottomNavigationItem item;
   final bool isSelected;
@@ -132,18 +133,19 @@ class _Tile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkResponse(
+      splashColor: Colors.transparent,
       onTap: onTap,
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          const SizedBox(height: 8),
+          const SizedBox(height: 10),
           if (isSelected) item.selectedIcon else item.icon,
-          const SizedBox(height: 4),
+          const SizedBox(height: 8),
           Text(
             item.label,
             style: isSelected ? selectedTextStyle : unSelectedTextStyle,
           ),
-          const SizedBox(height: 4),
+          const SizedBox(height: 20),
         ],
       ),
     );

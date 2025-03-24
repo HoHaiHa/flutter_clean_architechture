@@ -65,11 +65,23 @@ dependencies:
 
   freezed_annotation: ^3.0.0
 
+  #State management
+  provider: ^6.1.2
+  state_notifier: ^1.0.0
+  flutter_state_notifier: ^1.0.0
+
+  # replace for SizeBox
+  gap: ^3.0.1
+
+  pull_to_refresh: ^2.0.0
+
 flutter_native_splash:
   image: assets/logo.png  # Đường dẫn đến ảnh splash
   android: true
   ios: true
   fullscreen: true
+
+
 
 
 dev_dependencies:

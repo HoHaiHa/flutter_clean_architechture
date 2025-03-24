@@ -1,78 +1,137 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_clean_architecture/presentation/resources/themes.dart';
 
-import '../../gen/fonts.gen.dart';
+
+import 'colors.dart';
 
 abstract class AppStyles {
-  static const h1 = TextStyle(
-    fontWeight: FontWeight.w500,
-    fontSize: 32,
-    height: 32 / 32,
-    fontFamily: FontFamily.googleSans,
+  static final primary = TextStyle(
+    fontWeight: FontWeight.w400,
+    fontSize: 14,
+    color: AppColors.mainTextColor,
+    fontFamily: AppTheme.appFontFamily,
   );
-  static const h2 = TextStyle(
+
+  static final primaryBold = TextStyle(
+    fontWeight: FontWeight.w600,
+    fontSize: 14,
+    color: AppColors.mainTextColor,
+    fontFamily: AppTheme.appFontFamily,
+  );
+
+  static final medium = TextStyle(
+    fontWeight: FontWeight.w400,
+    fontSize: 15,
+    color: AppColors.mainTextColor,
+    fontFamily: AppTheme.appFontFamily,
+  );
+
+  static final mediumSemiBold = TextStyle(
+    fontWeight: FontWeight.w500,
+    fontSize: 15,
+    color: AppColors.mainTextColor,
+    fontFamily: AppTheme.appFontFamily,
+  );
+
+  static final mediumBold = TextStyle(
+    fontWeight: FontWeight.w600,
+    fontSize: 15,
+    color: AppColors.mainTextColor,
+    fontFamily: AppTheme.appFontFamily,
+  );
+
+  static final largeSemiBold = TextStyle(
+    fontWeight: FontWeight.w600,
+    fontSize: 16,
+    color: AppColors.mainTextColor,
+    fontFamily: AppTheme.appFontFamily,
+  );
+
+  static final largeBold = TextStyle(
+    fontWeight: FontWeight.w700,
+    fontSize: 16,
+    color: AppColors.mainTextColor,
+    fontFamily: AppTheme.appFontFamily,
+  );
+
+  static final xLarge = TextStyle(
+    fontWeight: FontWeight.w400,
+    fontSize: 17,
+    color: AppColors.mainTextColor,
+    fontFamily: AppTheme.appFontFamily,
+  );
+
+  static final xLargeBold = TextStyle(
+    fontWeight: FontWeight.w600,
+    fontSize: 17,
+    color: AppColors.mainTextColor,
+    fontFamily: AppTheme.appFontFamily,
+  );
+
+  static final xxLargeBold = TextStyle(
+    fontWeight: FontWeight.w600,
+    fontSize: 20,
+    color: AppColors.mainTextColor,
+    fontFamily: AppTheme.appFontFamily,
+  );
+
+  static final xxxLargeSemiBold = TextStyle(
+    fontWeight: FontWeight.w600,
+    fontSize: 24,
+    height: 32 / 24,
+    color: AppColors.mainTextColor,
+    fontFamily: AppTheme.appFontFamily,
+  );
+
+  static final xxxLargeBold = TextStyle(
     fontWeight: FontWeight.w700,
     fontSize: 24,
     height: 32 / 24,
-    fontFamily: FontFamily.googleSans,
+    color: AppColors.mainTextColor,
+    fontFamily: AppTheme.appFontFamily,
   );
-  static const h3 = TextStyle(
-    fontWeight: FontWeight.w500,
-    fontSize: 16,
-    height: 18 / 16,
-    fontFamily: FontFamily.googleSans,
-  );
-  static const primary = TextStyle(
-    fontWeight: FontWeight.w400,
-    fontSize: 13,
-    height: 18 / 13,
-    fontFamily: FontFamily.googleSans,
-  );
-  static const medium = TextStyle(
-    fontWeight: FontWeight.w500,
-    fontSize: 16,
-    height: 24 / 16,
-    fontFamily: FontFamily.googleSans,
-  );
-  static const small = TextStyle(
+
+  static final small = TextStyle(
     fontWeight: FontWeight.w400,
     fontSize: 12,
-    height: 18 / 12,
-    fontFamily: FontFamily.googleSans,
+    color: AppColors.mainTextColor,
+    fontFamily: AppTheme.appFontFamily,
   );
-  static const highlightsMedium = TextStyle(
-    fontWeight: FontWeight.w500,
-    fontSize: 13,
-    height: 18 / 13,
-    fontFamily: FontFamily.googleSans,
+
+  static final smallBold = TextStyle(
+    fontWeight: FontWeight.w600,
+    fontSize: 12,
+    color: AppColors.mainTextColor,
+    fontFamily: AppTheme.appFontFamily,
   );
-  static const highlightsBold = TextStyle(
-    fontWeight: FontWeight.w700,
-    fontSize: 14,
-    height: 24 / 14,
-    fontFamily: FontFamily.googleSans,
-  );
-  static const button = TextStyle(
-    fontWeight: FontWeight.w700,
-    fontSize: 13,
-    height: 18 / 13,
-    fontFamily: FontFamily.googleSans,
-  );
-  static const title = TextStyle(
+
+  static final title = TextStyle(
     fontWeight: FontWeight.w700,
     fontSize: 16,
     height: 18 / 16,
-    fontFamily: FontFamily.googleSans,
+    fontFamily: AppTheme.appFontFamily,
   );
-  static const header = TextStyle(
+  static final header = TextStyle(
     fontWeight: FontWeight.w700,
     fontSize: 18,
     height: 28 / 18,
-    fontFamily: FontFamily.googleSans,
+    fontFamily: AppTheme.appFontFamily,
   );
-  static const bottomNavigation = TextStyle(
+  static final bottomNavigation = TextStyle(
     fontWeight: FontWeight.w500,
     fontSize: 11,
     height: 16 / 11,
-    fontFamily: FontFamily.googleSans,
+    fontFamily: AppTheme.appFontFamily,
+  );
+  static final title2 = TextStyle(
+    fontWeight: FontWeight.w500,
+    fontSize: 12,
+    height: 12 / 12,
+    fontFamily: AppTheme.appFontFamily,
+  );
+  static BoxShadow defaultShadow = BoxShadow(
+    color: AppColors.black.withAlpha((0.05 * 255).round()),
+    blurRadius: 8,
+    offset: const Offset(0, 8),
   );
 }

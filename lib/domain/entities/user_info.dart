@@ -1,10 +1,11 @@
-//
-// import 'package:freezed_annotation/freezed_annotation.dart';
-//
-// @freezed
-// abstract class UserInfo with _UserInfo{
-//   const factory UserInfo({
-//     required String id,
-//     required String username,
-//   }) = _UserInfo;
-// }
+import 'package:freezed_annotation/freezed_annotation.dart';
+
+part 'user_info.freezed.dart';
+
+@freezed
+abstract class UserInfo with _$UserInfo {
+  const factory UserInfo({
+    required int id,
+    required String fullName,
+  }) = _UserInfo;
+}
